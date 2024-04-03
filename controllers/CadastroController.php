@@ -4,6 +4,11 @@ include "models/user.php";
 
 class CadastroController extends Controller
 {
+    public function __construct()
+    {
+        $this->users =  new UserModel();
+    }
+
 
     public function index()
     {
@@ -12,9 +17,34 @@ class CadastroController extends Controller
 
     public function lista()
     {
-        $users =  new UserModel();
-        $users_array = $users->getUsers();
-
+        $users_array = $this->users->getUsers();
         $this->render("lista", $users_array);
+    }
+
+    public function editar()
+    {
+        if (isset($_POST)) {
+
+            $data['id'] =       $_POST['id'];
+            $data['nome'] =     $_POST['nome'];
+            $data['email'] =    $_POST['email'];
+
+            $return = $this->users->update($data);
+
+            echo $return;
+        }
+    }
+
+    public function adicionarCor()
+    {
+        if (isset($_POST)) {
+
+            $data['id'] =       $_POST['id'];
+            $data['cor'] =      $_POST['cor'];
+
+            $return = $this->users->insertColor($data);
+
+            echo $return;
+        }
     }
 }

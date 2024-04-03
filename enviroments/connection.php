@@ -1,6 +1,7 @@
 <?php
 
-class Connection {
+class Connection
+{
 
     private $databaseFile;
     private $connection;
@@ -29,5 +30,11 @@ class Connection {
         $result->setFetchMode(PDO::FETCH_INTO, new stdClass);
 
         return $result;
+    }
+
+    public function execute($query, $array_bind)
+    {
+        $stmt      = $this->getConnection()->prepare($query);
+        $stmt->execute($array_bind);
     }
 }
