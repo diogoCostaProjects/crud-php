@@ -37,4 +37,9 @@ class Connection
         $stmt      = $this->getConnection()->prepare($query);
         $stmt->execute($array_bind);
     }
+
+    public function last_id()
+    {
+        return $this->connection->lastInsertId();
+    }
 }

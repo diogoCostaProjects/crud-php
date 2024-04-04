@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(0);
+ini_set("display_errors", 0);
+
 $request = $_SERVER['REQUEST_URI'];
 
 $base_path = str_replace('/index.php', '', $_SERVER['PHP_SELF']);

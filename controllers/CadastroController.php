@@ -9,16 +9,19 @@ class CadastroController extends Controller
         $this->users =  new UserModel();
     }
 
-
-    public function index()
-    {
-        $this->render("cadastro");
-    }
-
     public function lista()
     {
+        $cores_user = [];
+        
         $users_array = $this->users->getUsers();
-        $this->render("lista", $users_array);
+        $cores = $this->users->getAllColors();
+        
+
+        foreach ($users_array as $key=>$u){
+            $cores_user[$key] = $this->users->getColorsUser($u->id);
+        }
+        
+        $this->render("lista", $users_array, $cores_user, $cores);
     }
 
     public function editar()
@@ -30,6 +33,33 @@ class CadastroController extends Controller
             $data['email'] =    $_POST['email'];
 
             $return = $this->users->update($data);
+
+            echo $return;
+        }
+    }
+
+    public function adicionar()
+    {
+        if (isset($_POST)) {
+
+            $data['nome'] =       $_POST['nome'];
+            $data['email'] =      $_POST['email'];
+            $data['cores'] =      $_POST['cores'];
+
+            $return = $this->users->insert($data);
+
+            echo $return;
+        }
+    }
+
+    public function remover()
+    {
+        if (isset($_POST)) {
+
+            $data['id'] =       $_POST['id'];
+
+            $return = $this->users->deleteUserColors($data);
+            $return = $this->users->delete($data);
 
             echo $return;
         }
