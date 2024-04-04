@@ -1,0 +1,8 @@
+git status
+clear[H
+licação basta implementar o projeto no servidor local
+-- no caso do XAMPP o qual usei em "htdocs"
+
+- Acessar o seguinte link http://localhost/crud/cadastro/lista
+
+OBS: Não tratei questões de segurança por questões do tempo mesmo
