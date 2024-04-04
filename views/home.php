@@ -8,7 +8,7 @@
 
 <body>
     <h1>Bem-vindo à página inicial</h1>
-    <p>Esta é a página inicial da sua aplicação.</p>
+    <p>Esta é a página inicial da aplicação.</p>
 </body>
 
 </html>
