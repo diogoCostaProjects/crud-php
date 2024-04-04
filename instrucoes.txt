@@ -1,6 +1,6 @@
 - Para executar a aplicação basta implementar o projeto no servidor local
 -- no caso do XAMPP o qual usei em "htdocs"
 
-- Acessar o seguinte link http://localhost/crud/cadastro/lista
+- Acessar o seguinte link http://localhost/crud-php/cadastro/lista
 
 OBS: Não tratei questões de segurança por questões do tempo mesmo
